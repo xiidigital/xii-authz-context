@@ -61,6 +61,7 @@ class AnonymousAuthzContext(AuthzContext):
     """Authorization context for anonymous users.
 
     This context represents an unauthenticated subject with no permissions.
+    All optional fields are None and permissions is an empty frozenset.
     """
 
     def __init__(self) -> None:
@@ -73,14 +74,3 @@ class AnonymousAuthzContext(AuthzContext):
             org_unit=None,
             permissions=frozenset(),
         )
-
-    def has_permission(self, permission: Permission) -> bool:
-        """Anonymous users never have permissions.
-
-        Args:
-            permission: The permission to check (ignored).
-
-        Returns:
-            Always False.
-        """
-        return False
