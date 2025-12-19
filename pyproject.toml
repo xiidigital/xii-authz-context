@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xii-authz-context"
+version = "0.1.0"
+description = "Minimal, reusable authorization context for Python applications"
+readme = "README.md"
+license = { text = "MPL-2.0" }
+requires-python = ">=3.10"
+authors = [
+    { name = "XII Digital" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL-2.0)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/xiidigital/xii-authz-context"
+Repository = "https://github.com/xiidigital/xii-authz-context"
