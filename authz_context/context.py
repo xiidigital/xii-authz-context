@@ -77,11 +77,4 @@ class AnonymousAuthzContext(AuthzContext):
     
     def __init__(self) -> None:
         """Initialize an anonymous authorization context."""
-        super().__init__(
-            subject_id=SubjectID("anonymous"),
-            username=None,
-            email=None,
-            org_id=None,
-            org_unit=None,
-            permissions=frozenset()
-        )
+        super().__init__(subject_id=SubjectID("anonymous"))
