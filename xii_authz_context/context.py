@@ -18,8 +18,12 @@ class AuthzContext:
     subject_id: SubjectID
     username: Optional[str] = None
     email: Optional[str] = None
+
+    # Contexto organizacional ACTIVO (opcional)
     org_id: Optional[OrgID] = None
     org_unit: Optional[str] = None
+
+    # Capacidades globales
     permissions: FrozenSet[Permission] = frozenset()
 
     def has_permission(self, permission: Permission) -> bool:
@@ -64,13 +68,8 @@ class AnonymousAuthzContext(AuthzContext):
     All optional fields are None and permissions is an empty frozenset.
     """
 
-    def __init__(self) -> None:
-        """Initialize anonymous authorization context."""
-        super().__init__(
-            subject_id=SubjectID("anonymous"),
-            username=None,
-            email=None,
-            org_id=None,
-            org_unit=None,
-            permissions=frozenset(),
-        )
+    subject_id = SubjectID("anonymous")
+    permissions = frozenset()
+
+    def has_permission(self, permission: Permission) -> bool:
+        return False
